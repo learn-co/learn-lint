@@ -52,6 +52,31 @@ class NinetiesTeen
     @cd_collection = []
   end
 end
+
+```
+
+```html
+some code
+```
+
+```objc
+code code code
+```
+
+```bash
+bash it!
+```
+
+```swift
+swiftly writing code over here
+```
+
+```javascript
+functions scope this is that
+```
+
+```sql
+query query gimme the thing
 ```
 
 We want our teens to be able to tell their friends about their awesome CD collection, so let's create a method, `my_cd_collection`, that allows them to `put`s out the names of each of their cds:
