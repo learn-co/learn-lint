@@ -16,6 +16,10 @@ class Person
 
 Now, with those code, we can do the following:
 
+```erb
+some code!
+```
+
 ```ruby
 beyonce = Person.new("Beyonce")
 jayz = Person.new("Jay-Z")
