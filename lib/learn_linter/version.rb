@@ -1,3 +1,3 @@
 class LearnLinter
-  VERSION = "1.6.5"
+  VERSION = "1.6.7"
 end
