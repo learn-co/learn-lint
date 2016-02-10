@@ -20,6 +20,12 @@ Now, with those code, we can do the following:
 some code!
 ```
 
+Then, learn java, cuz, reasons:
+
+```java
+what does java look like??
+```
+
 ```ruby
 beyonce = Person.new("Beyonce")
 jayz = Person.new("Jay-Z")
