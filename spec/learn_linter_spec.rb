@@ -227,6 +227,16 @@ describe LearnLinter do
         linter = LearnLinter.new(FIXTURES_PATH + 'invalid_readme')
         expect(linter.lint_directory).to eq(invalid_readme)
       end
+
+      it 'does not error when code block has three backtics and no language designator' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'valid_readme_with_three_backtics')
+        expect(linter.lint_directory).to eq(present_and_valid_readme)
+      end
+
+      it 'errors when in-line code is written with three backtics instead of one' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'invalid_readme_with_three_inline_backtics')
+        expect(linter.lint_directory).to eq(invalid_readme)
+      end
     end
 
     context 'when quiet' do 
