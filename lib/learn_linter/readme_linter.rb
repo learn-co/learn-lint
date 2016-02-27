@@ -1,5 +1,3 @@
-require 'english'
-
 class ReadmeLinter
 
   def self.parse_file(file, learn_error)
@@ -24,7 +22,7 @@ class ReadmeLinter
   def self.collect_lines(file)
     lines = {}
     File.foreach(file) do |line_content|
-      lines["#{$INPUT_LINE_NUMBER}"] = line_content
+      lines["#{$.}"] = line_content
     end
     lines
   end
