@@ -237,6 +237,11 @@ describe LearnLinter do
         linter = LearnLinter.new(FIXTURES_PATH + 'invalid_readme_with_three_inline_backtics')
         expect(linter.lint_directory).to eq(invalid_readme)
       end
+
+      it 'does not error when multiple in-line code snippets are written on a single line' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'valid_readme_multiple_inline_code_snippets')
+        expect(linter.lint_directory).to eq(present_and_valid_readme)
+      end
     end
 
     context 'when quiet' do 

@@ -21,7 +21,7 @@ class ReadmeLinter
   def self.validate_snippets(file, learn_error)
     file.split(" ").each do |chars|
       if chars.match(/``/)
-        if !(chars.match(/^```(ruby|bash|swift|html|erb|javascript|objc|java|sql)?$/))
+        if !(chars.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql)?$/))
           break
         else
           green_light(learn_error)
