@@ -20,7 +20,7 @@ class LearnError < StandardError
 
     @valid_yaml = {message: "invalid yaml", color: :red}
     @valid_license = {message: "invalid or missing license content", color: :yellow}
-    @valid_readme = {message: "invalid code snippet. Must have three backticks + optional language designator to open and close all code blocks. In-line code snippets must use one backtic", color: :red}
+    @valid_readme = {message: "", color: :red}
     @valid_contributing = {message: "invalid or missing contributing content", color: :yellow}
 
     @present_learn = {message: "missing .learn file", color: :red}

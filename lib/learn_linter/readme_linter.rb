@@ -1,11 +1,13 @@
+require 'english'
+
 class ReadmeLinter
 
   def self.parse_file(file, learn_error)
-    file_string = File.open(file).read
-    if has_code_snippets?(file_string)
-      validate_snippets(file_string, learn_error)
+    if has_code_snippets?(file)
+      lines = collect_lines(file)
+      validate_snippets(lines, learn_error)
     else
-      green_light(learn_error)
+       green_light(learn_error)
     end
   end
 
@@ -15,19 +17,35 @@ class ReadmeLinter
   end
 
   def self.has_code_snippets?(file)
-    file.match(/``/)
+    file_content = File.open(file).read
+    file_content.match(/``/)
   end
 
-  def self.validate_snippets(file, learn_error)
-    file.split(" ").each do |chars|
-      if chars.match(/``/)
-        if !(chars.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql)?$/))
-          break
-        else
-          green_light(learn_error)
+  def self.collect_lines(file)
+    lines = {}
+    File.foreach(file) do |line_content|
+      lines["#{$INPUT_LINE_NUMBER}"] = line_content
+    end
+    lines
+  end
+
+  def self.validate_snippets(lines, learn_error)
+    lines.each do |line_num, line_content|
+      if line_content.match(/``/)
+        if !(line_content.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql)?$/)) 
+          learn_error.valid_readme[:message] << "INVALID CODE SNIPPET - line #{line_num}: #{line_content}\n"
         end
       end
     end
+    total_errors?(learn_error)
+  end
+
+  def self.total_errors?(learn_error)
+    if !learn_error.valid_readme[:message].include?("INVALID CODE SNIPPET")
+        green_light(learn_error)
+    end
   end
 end
+
+
     

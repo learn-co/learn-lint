@@ -420,16 +420,14 @@ end
 here is some code
 ```
 
-``` 
+```
  :here is some more code
 ```
 
 ```
  |
 ```
-## Is this valid??
-
-i'm not sure! ```hello??```
+`
 
 ## Conclusion
 
