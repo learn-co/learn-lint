@@ -20,7 +20,7 @@ class LearnError < StandardError
 
     @valid_yaml = {message: "invalid yaml", color: :red}
     @valid_license = {message: "invalid or missing license content", color: :yellow}
-    @valid_readme = {message: "", color: :red}
+    @valid_readme = {message: [], color: :red}
     @valid_contributing = {message: "invalid or missing contributing content", color: :yellow}
 
     @present_learn = {message: "missing .learn file", color: :red}
@@ -56,7 +56,13 @@ class LearnError < StandardError
 
   def result_output
     result_message.each do |result|
-      emit(result)
+      if result[:message].is_a?(Array)
+        result[:message].each do |result_message| 
+          emit({message: result_message, color: result[:color]})
+        end
+      else
+        emit(result)
+      end
     end
   end
 

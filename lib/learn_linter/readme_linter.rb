@@ -28,20 +28,28 @@ class ReadmeLinter
   end
 
   def self.validate_snippets(lines, learn_error)
-    lines.each do |line_num, line_content|
-      if line_content.match(/``/)
-        if !(line_content.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql)?$/)) 
-          learn_error.valid_readme[:message] << "INVALID CODE SNIPPET - line #{line_num}: #{line_content}\n"
-        end
-      end
-    end
+    lint_lines(lines, learn_error)
     total_errors?(learn_error)
   end
 
+  def self.lint_lines(lines, learn_error)
+    lines.each do |line_num, line_content|
+      if line_content.match(/``/)
+        if !(line_content.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql)?$/)) 
+          learn_error.valid_readme[:message] << "INVALID CODE SNIPPET - line #{line_num}: #{line_content}"
+        end
+      end
+    end
+  end
+
   def self.total_errors?(learn_error)
-    if !learn_error.valid_readme[:message].include?("INVALID CODE SNIPPET")
+    if error_free?(learn_error)
         green_light(learn_error)
     end
+  end
+
+  def self.error_free?(learn_error)
+    learn_error.valid_readme[:message].empty?
   end
 end
 

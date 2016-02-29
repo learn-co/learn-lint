@@ -246,7 +246,8 @@ describe LearnLinter do
       it 'outputs message reporting on line numbers of all invalid code snippets' do 
         linter = LearnLinter.new(FIXTURES_PATH + 'invalid_code_snippets_testing_output')
         expect(linter.lint_directory).to eq(invalid_readme)
-        expect{linter.lint_directory}.to output(/INVALID CODE SNIPPET - line 2: This is line two with an invalid code snippet ```too many backtics```\n\nINVALID CODE SNIPPET - line 6: ```rubZ/).to_stdout
+        expect{linter.lint_directory}.to output(/INVALID CODE SNIPPET - line 2: This is line two with an invalid code snippet ```too many backtics```/).to_stdout
+        expect{linter.lint_directory}.to output(/INVALID CODE SNIPPET - line 6: ```rubZ/).to_stdout
       end
     end
 
