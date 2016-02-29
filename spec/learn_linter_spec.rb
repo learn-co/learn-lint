@@ -249,6 +249,11 @@ describe LearnLinter do
         expect{linter.lint_directory}.to output(/INVALID CODE SNIPPET - line 2: This is line two with an invalid code snippet ```too many backtics```/).to_stdout
         expect{linter.lint_directory}.to output(/INVALID CODE SNIPPET - line 6: ```rubZ/).to_stdout
       end
+
+      it 'errors when readme contains code block with three backtics, space, then language designator' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'testing_linter')
+         expect(linter.lint_directory).to eq(invalid_readme)
+      end
     end
 
     context 'when quiet' do 
