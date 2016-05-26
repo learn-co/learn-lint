@@ -35,7 +35,7 @@ class ReadmeLinter
   def self.lint_lines(lines, learn_error)
     lines.each do |line_num, line_content|
       if line_content.match(/``/)
-        if !(line_content.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql)?$/)) 
+        if !(line_content.match(/^```(ruby|bash|swift|html|erb|js|javascript|objc|java|sql|css|text)?$/)) 
           learn_error.valid_readme[:message] << "INVALID CODE SNIPPET - line #{line_num}: #{line_content}"
         end
       end
