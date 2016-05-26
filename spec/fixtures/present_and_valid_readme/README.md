@@ -14,6 +14,14 @@ class Person
   end
 ```
 
+```css
+code!
+```
+
+```text
+code!
+```
+
 Now, with those code, we can do the following:
 
 ```erb
