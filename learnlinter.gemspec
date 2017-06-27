@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["sophie.debenedetto@gmail.com"]
 
   spec.summary       = %q{can lint a directory for valid .learn, license files}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/learn-co/learn-lint"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec", "~> 3.6"
 end
