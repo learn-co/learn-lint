@@ -9,7 +9,7 @@ class LicenseLinter
   end
 
   def self.sanitize_whitespace(file)
-    file.split.delete_if {|char| char.empty? || char == "\n"}
+    file.split
   end
 
   def self.valid_license
