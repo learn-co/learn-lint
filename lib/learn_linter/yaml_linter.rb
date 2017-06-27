@@ -1,8 +1,6 @@
 require 'yaml'
 
 class YamlLint
-
-
   def self.parse_file(file, learn_error)
     begin
       YAML.load_file(file)
@@ -17,7 +15,7 @@ class YamlLint
       if self.validate_whitespace_for_learn(file)
         learn_error.yaml_error[:valid_whitespace] = true
         learn_error.valid_yaml = {message: "valid yaml and valid whitespace.", color: :green}
-      else 
+      else
         learn_error.valid_yaml = {message: "valid yaml but invalid whitespace", color: :red}
       end
     end
@@ -26,11 +24,11 @@ class YamlLint
   def self.validate_whitespace_for_learn(file)
     lines = file_lines(file).split("\n")
     attributes = lines.select { |line| line.include?("-") }
-    attributes.each do |attribute| 
+    attributes.each do |attribute|
       return false unless attribute[0..3] == "  - "
     end
     true
-  end 
+  end
 
    def self.check_attributes(file)
     file_string = file_lines(file)
@@ -40,5 +38,4 @@ class YamlLint
   def self.file_lines(file)
     f = File.read(file)
   end
-
 end

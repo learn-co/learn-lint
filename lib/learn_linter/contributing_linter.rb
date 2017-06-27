@@ -1,10 +1,7 @@
-class ContributingLinter 
-
-  VALID_FILE = File.open(File.expand_path(File.dirname(__FILE__)) + '/valid_contributing.md')
-
+class ContributingLinter
   def self.parse_file(file, learn_error)
     directory_file = File.open(file).read
-    # valid_file = VALID_FILE.read
+
     if sanitize_whitespace(directory_file) == valid_contributing
       learn_error.contributing_error[:valid_contributing] = true
       learn_error.valid_contributing = {message: "valid contributing", color: :green}
