@@ -32,7 +32,6 @@ Successes and failures will be printed out to your terminal (in color) :)
 * Fork and clone this repo
 * Bundle install and then run rspec
 * If you add to the gem functionality, please be sure that any changes are tested. In your commit message/PR message, describe the change and describe the test, pointing out where to find the test (what file, what line). 
-* Tag any PRs with `@sophiedebenedetto`
 
 
 ## License
