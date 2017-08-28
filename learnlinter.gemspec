@@ -6,8 +6,8 @@ require 'learn_linter/version'
 Gem::Specification.new do |spec|
   spec.name          = "learn_linter"
   spec.version       = LearnLinter::VERSION
-  spec.authors       = ["Sophie DeBenedetto"]
-  spec.email         = ["sophie.debenedetto@gmail.com"]
+  spec.authors       = ["Learn-co"]
+  spec.email         = ["learn@flatironschool.com"]
 
   spec.summary       = %q{can lint a directory for valid .learn, license files}
   spec.homepage      = ""
