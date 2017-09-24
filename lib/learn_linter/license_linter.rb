@@ -9,7 +9,7 @@ class LicenseLinter
   end
 
   def self.sanitize_whitespace(file)
-    file.split
+    file.sub(/20\d\d/, 'YEAR').split
   end
 
   def self.valid_license
@@ -21,7 +21,7 @@ class LicenseLinter
       'License',
       'Copyright',
       '(c)',
-      '2017',
+      'YEAR',
       'Flatiron',
       'School,',
       'Inc.',
