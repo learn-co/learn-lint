@@ -6,9 +6,7 @@ require_relative './learn_linter/yaml_linter'
 require_relative './learn_linter/contributing_linter'
 
 class LearnLinter
-
   attr_accessor :filepath, :quiet
-
 
   def initialize(filepath, quiet=nil)
     @filepath = filepath
@@ -21,9 +19,9 @@ class LearnLinter
     self.license_lint
     self.readme_lint
     self.contributing_lint
-    unless quiet
-      @learn_error.result_output
-    end
+
+    @learn_error.result_output unless quiet
+
     @learn_error.total_errors
   end
 
@@ -66,5 +64,4 @@ class LearnLinter
       ContributingLinter.parse_file("#{filepath}/CONTRIBUTING.md", @learn_error)
     end
   end
-
 end

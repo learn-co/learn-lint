@@ -1,14 +1,14 @@
 class LearnError < StandardError
-  attr_accessor :filepath, :valid_yaml, :valid_license, 
-  :present_learn, :present_license, :present_readme, :yaml_error, 
-  :readme_error, :license_error, :valid_readme, :correct_yaml_content, 
+  attr_accessor :filepath,
+  :valid_readme,       :present_readme,       :readme_error,
+  :valid_license,      :present_license,      :license_error,
   :valid_contributing, :present_contributing, :contributing_error
+  :valid_yaml,         :present_learn,        :yaml_error,        :correct_yaml_content,
 
   ESCAPES = { :green  => "\033[32m",
               :yellow => "\033[33m",
               :red    => "\033[31m",
               :reset  => "\033[0m" }
-
 
   def initialize
     @yaml_error = {present_dotlearn: false, valid_yaml: false, valid_whitespace: false, attributes: false}
@@ -27,7 +27,6 @@ class LearnError < StandardError
     @present_license = {message: "missing LICENSE.md", color: :red}
     @present_readme = {message: "missing README.md", color: :yellow}
     @present_contributing = {message: "missing CONTRIBUTING.md", color: :yellow}
-
   end
 
   def emit(opts={})
@@ -46,18 +45,27 @@ class LearnError < StandardError
       readme: readme_error,
       contributing: contributing_error
     }
-    
   end
 
   def result_message
-    [present_learn, valid_yaml, correct_yaml_content, present_license, valid_license, present_readme, valid_readme, valid_contributing, present_contributing]
+    [
+      present_learn,
+      valid_yaml,
+      correct_yaml_content,
+      present_license,
+      valid_license,
+      present_readme,
+      valid_readme,
+      valid_contributing,
+      present_contributing
+    ]
   end
 
 
   def result_output
     result_message.each do |result|
       if result[:message].is_a?(Array)
-        result[:message].each do |result_message| 
+        result[:message].each do |result_message|
           emit({message: result_message, color: result[:color]})
         end
       else
@@ -65,5 +73,4 @@ class LearnError < StandardError
       end
     end
   end
-
 end
