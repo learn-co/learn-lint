@@ -2,7 +2,7 @@
 
 Gem to accompany Learn curriculum development. Install gem and run from command line with `learn-lint < directory name >`. Given a directory, the gem will lint for 
 
-* precense of `.learn` file
+* presence of `.learn` file
 * valid yaml in `.learn` file
 * valid whitespace for Learn in `.learn` file. Learn requires two whitespace before a `-` in any lines containing a `-`. 
 * precense of `LICENSE.md`
