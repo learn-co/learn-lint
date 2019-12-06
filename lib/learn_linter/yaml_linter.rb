@@ -12,7 +12,10 @@ class YamlLint
       learn_error.yaml_error[:valid_yaml] = true
       if check_attributes(file)
         learn_error.yaml_error[:attributes] = true
-        learn_error.correct_yaml_content = {message: "valid attribute key names", color: :green}
+        learn_error.correct_yaml_content = {message: "valid .learn file attributes", color: :green}
+      else
+        learn_error.yaml_error[:attributes] = false
+        learn_error.correct_yaml_content = {message: ".learn file missing languages tag", color: :red}
       end
       if self.validate_whitespace_for_learn(file)
         learn_error.yaml_error[:valid_whitespace] = true
@@ -34,7 +37,7 @@ class YamlLint
 
    def self.check_attributes(file)
     file_string = file_lines(file)
-    file_string.match(/tags/) && file_string.match(/resources/) && file_string.match(/languages/)
+    file_string.match(/languages/)
   end
 
   def self.file_lines(file)

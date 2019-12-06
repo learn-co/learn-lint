@@ -16,7 +16,7 @@ class LearnError < StandardError
     @license_error = {present_license: false, valid_license: false}
     @contributing_error = {present_contributing: false, valid_contributing: false}
 
-    @correct_yaml_content = {message: ".learn file must have 'tags', 'resources' and 'languages' keys", color: :yellow}
+    @correct_yaml_content = {message: ".learn file must have 'languages' key", color: :red}
 
     @valid_yaml = {message: "invalid yaml", color: :red}
     @valid_license = {message: "invalid or missing license content", color: :yellow}
