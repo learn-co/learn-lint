@@ -1,4 +1,3 @@
-require 'pry'
 class LicenseLinter 
 
   VALID_FILE = File.open(File.expand_path(File.dirname(__FILE__)) + '/valid_license.md')
