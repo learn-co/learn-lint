@@ -1,9 +1,10 @@
 # Contributing to Learn.co Curriculum
 
-We're really excited that you're about to contribute to the [open
-curriculum](https://learn.co/content-license) on [Learn.co](https://learn.co).
-If this is your first time contributing, please continue reading to learn how to
-make the most meaningful and useful impact possible.
+We're really excited that you're about to contribute to the
+[open curriculum](https://learn.co/content-license) on
+[Learn.co](https://learn.co). If this is your first time contributing, please
+continue reading to learn how to make the most meaningful and useful impact
+possible.
 
 ## Raising an Issue to Encourage a Contribution
 
@@ -25,12 +26,12 @@ ahead and use a typical git workflow to make it happen:
 A curriculum owner will review your change and approve or comment on it in due
 course.
 
-# Why Contribute?
+## Why Contribute?
 
-Curriculum on Learn is publicly and freely available under Learn's [Educational
-Content License](https://learn.co/content-license). By embracing an open-source
-contribution model, our goal is for the curriculum on Learn to become, in time,
-the best educational content the world has ever seen.
+Curriculum on Learn is publicly and freely available under Learn's
+[Educational Content License](https://learn.co/content-license). By embracing an
+open-source contribution model, our goal is for the curriculum on Learn to
+become, in time, the best educational content the world has ever seen.
 
 We need help from the community of Learners to maintain and improve the
 educational content. Everything from fixing typos, to correcting out-dated
